@@ -1,9 +1,8 @@
 import { createApp } from "vue";
-import "./style.css";
 import App from "./App.vue";
 import pinia from "./stores";
 const app = createApp(App);
-
+app.use(pinia);
 import ElementPlus from "element-plus";
 import "element-plus/dist/index.css";
 import zhCn from "element-plus/dist/locale/zh-cn.mjs";
@@ -18,5 +17,8 @@ import "@/styles/index.scss";
 import "virtual:svg-icons-register";
 import gloalComponent from "@/components";
 app.use(gloalComponent); // 全局安装自定义组件
-app.use(pinia);
+
+import router from "@/router"; // 引入路由
+app.use(router); // 全局安装路由
+
 app.mount("#app");
