@@ -73,6 +73,9 @@ app.whenReady().then(() => {
     const win = BrowserWindow.fromWebContents(webContents);
     win.setTitle(data);
   });
+  ipcMain.on("counter-value", (_event, value) => {
+    console.log(value); // will print value to Node console
+  });
 });
 
 // 限制只能打开一个页面

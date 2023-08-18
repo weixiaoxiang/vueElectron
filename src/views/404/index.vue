@@ -24,7 +24,7 @@ const openFile = async () => {
 
 window.electronApi.onUpdateCounter((_event, value) => {
   input.value += value * 1;
-  console.log(input.value, 1);
+  _event.sender.send("counter-value", input.value);
 });
 </script>
 
